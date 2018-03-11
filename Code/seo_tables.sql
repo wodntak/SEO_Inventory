@@ -1,5 +1,19 @@
-USE charms;
-DROP TABLE IF EXISTS Blocks;
+USE tsim;
+DROP TABLE IF EXISTS Item;
+DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS Inventory;
+DROP TABLE IF EXISTS UserInfo;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Address;
+
+CREATE TABLE Address (
+	addressId int not null auto_increment,
+    street varchar(255),
+    city varchar(255),
+    zipcode varchar(255),
+    country varchar(255),
+    CONSTRAINT PK_Address PRIMARY KEY (addressId)
+) Engine=InnoDB,COLLATE=latin1_general_cs;
 
 CREATE TABLE User (
 	userId int NOT NULL auto_increment,
@@ -17,32 +31,36 @@ CREATE TABLE UserInfo (
     lastName varchar(225) NOT NULL,
     creationDate DATE NOT NULL,
     creationTIme TIMESTAMP NOT NULL,
+    addressId int NOT NULL,
+    CONSTRAINT FK_Address FOREIGN KEY (addressId) 
+    REFERENCES Address(addressId),
     CONSTRAINT PK_UserInfo PRIMARY KEY (userInfoId),    
-    CONSTRAINT FK_User FOREIGN KEY (email),
+    CONSTRAINT FK_User FOREIGN KEY (email) REFERENCES User(email),
     CONSTRAINT uniqueEmail UNIQUE (email)
 ) Engine=InnoDB,COLLATE=latin1_general_cs;
 
-CREATE TABLE Inventory ()
+CREATE TABLE Inventory (
     inventoryId  int NOT NULL auto_increment,
     inventoryName VARCHAR(225) NOT NULL,
     email varchar(225) NOT NULL,
     CONSTRAINT PK_Inventory PRIMARY KEY (inventoryId), 
-    CONSTRAINT FK_User FOREIGN KEY (email)
+    CONSTRAINT FK_User2 FOREIGN KEY (email) REFERENCES User(email)
 ) Engine=InnoDB,COLLATE=latin1_general_cs;
 
 CREATE TABLE Category (
     categoryId  int NOT NULL auto_increment,
     categoryName VARCHAR(225) NOT NULL,
     inventoryId int NOT NULL,
-    parentCategory VARCHAR(225),
+    parentCategory int,
     CONSTRAINT PK_Category PRIMARY KEY (categoryId), 
-    CONSTRAINT FK_Inventory FOREIGN KEY (inventoryId),
-    CONSTRAINT FK_ParentCategory FOREIGN KEY (parentCategory)
-    CONSTRAINT uniqueEmail UNIQUE (email)
+    CONSTRAINT FK_Inventory2 FOREIGN KEY (inventoryId) REFERENCES Inventory(inventoryId),
+    CONSTRAINT FK_ParentCategory FOREIGN KEY (parentCategory) REFERENCES Category(categoryId)
+    #CONSTRAINT uniqueEmail UNIQUE (email)
 ) Engine=InnoDB,COLLATE=latin1_general_cs;
 
 CREATE TABLE Item (
     itemId  int NOT NULL auto_increment,
+    categoryId int NOT NULL,
     itemName VARCHAR(225) NOT NULL,
     qty int NOT NULL,
     price int NOT NULL,
@@ -50,11 +68,7 @@ CREATE TABLE Item (
     supplier VARCHAR(225),
     category VARCHAR(225),
     CONSTRAINT PK_Item PRIMARY KEY (itemId), 
-    CONSTRAINT FK_ FOREIGN KEY (inventoryId),
-    CONSTRAINT FK_Category FOREIGN KEY (category)
+    #CONSTRAINT FK_ FOREIGN KEY (inventoryId) REFERENCES , 
+    CONSTRAINT FK_Category FOREIGN KEY (categoryId) REFERENCES Category(categoryId)
 ) Engine=InnoDB,COLLATE=latin1_general_cs;
 
-
-CREATE TABLE Address (
-
-) Engine=InnoDB,COLLATE=latin1_general_cs;
