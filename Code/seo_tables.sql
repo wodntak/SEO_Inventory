@@ -13,6 +13,7 @@ CREATE TABLE Address (
     zipcode varchar(255),
     country varchar(255),
     CONSTRAINT PK_Address PRIMARY KEY (addressId)
+
 ) Engine=InnoDB,COLLATE=latin1_general_cs;
 
 CREATE TABLE User (
@@ -29,8 +30,8 @@ CREATE TABLE UserInfo (
     firstName varchar(225) NOT NULL,
     middleName VARCHAR(225),
     lastName varchar(225) NOT NULL,
-    creationDate DATE NOT NULL,
-    creationTIme TIMESTAMP NOT NULL,
+    #creationDate DATE NOT NULL,
+    creationTime TIMESTAMP NOT NULL,
     addressId int NOT NULL,
     CONSTRAINT FK_Address FOREIGN KEY (addressId) 
     REFERENCES Address(addressId),
