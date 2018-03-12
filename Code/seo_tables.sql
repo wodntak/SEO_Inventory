@@ -64,7 +64,7 @@ CREATE TABLE Item (
     itemName VARCHAR(225) NOT NULL,
     qty int NOT NULL,
     price int NOT NULL,
-    itemStatus VARCHAR(225),
+    itemStatus int NOT NULL,
     supplier VARCHAR(225),
     category VARCHAR(225),
     CONSTRAINT PK_Item PRIMARY KEY (itemId), 

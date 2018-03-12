@@ -1,32 +1,33 @@
 <!DOCTYPE html>
+<script src="./seo.js"></script> 
 <html>
 <head>
-  <title>SEO</title>
+  <title>SEOinventory</title>
   <link rel ="stylesheet" href ="style.css">
 </head>
 <body>
-    <p id="topForm">SEO</p>
+    <p id="topForm">SEOinventory</p>
     <div class="login-page">
         <!--register an account form-->
         <div class ="form">
         <form class ="register-form">
-            <input type="text" placeholder="username">
-            <input type="password"  placeholder="password">
-            <input type ="text" placeholder="email">
-            <button>Sign up</button>
-            <p class="message">Have an account?<a href="#">Log In</a></p>
+            <input type="text" placeholder="email" id="email" required/>
+            <input type="password"  placeholder="password" id="pw1" required/>
+            <input type="password" placeholder="password again" id="pw2" required/>
+            <button type="button" onclick="signup(document.getElementById('email').value,document.getElementById('pw1').value,document.getElementById('pw2').value)">Sign up</button>
+            <p class="message">Have an account? <a href="#">Log In</a></p>
         </form>
         <!--login form-->
         <form class="login-form">
-            <input type="text" placeholder="Username" required/>
-            <input type="password" placeholder="Password" required/>
-            <button id="login">Login</a></button>
-            <p class="message">Not Registered?<a href="#"/>Sign up</p>
+            <input type="text" placeholder="email" required/>
+            <input type="password" placeholder="password" required/>
+            <button id="login" type="button" onclick="location.href='home.html';">Login</a></button>
+            <p class="message">Not Registered? <a href="#"/>Sign up</p>
         </form>
         </div>
     </div>    
       <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-
+      <script src="seo.js"></script> 
       <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
       <script>
       $('.message a').click(function(){

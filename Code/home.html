@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SEOinventory</title>
+  <link rel ="stylesheet" href ="style.css">
+</head>
+<body>
+    <p id="nameCorner">SEOinventory</p>
+    <div class="home-page">
+        <!--register an account form-->
+        <div class="corner">
+            <button type="button" onclick="location.href='login.html';" style="padding:4px;width:100%">LogOut</button>
+            <divider></divider>
+            <button type="button" onclick="location.href='userSettings.html';" style="padding:4px;width:100%">Settings</button>
+        </div>
+        <div class="inventory"></div>
+    </div>    
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+      <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
+      <script>
+      $('.message a').click(function(){
+          $('form').animate({height: "toggle",opacity:"toggle"});
+      });
+      </script>
+</body>
+</html>
