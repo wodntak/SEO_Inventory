@@ -1,0 +1,26 @@
+{
+  "name": "seo.js",
+  "version": "1.0.0",
+  "description": "walwkjfa",
+  "main": "seo.js",
+  "dependencies": {
+    "ejs": "^2.5.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmse/SEO_Inventory.git"
+  },
+  "keywords": [
+    "seo"
+  ],
+  "author": "Cale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charmse/SEO_Inventory/issues"
+  },
+  "homepage": "https://github.com/charmse/SEO_Inventory#readme"
+}

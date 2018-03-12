@@ -7,25 +7,7 @@
     <title>SEOinventory</title>
     <link rel ="stylesheet" href ="style.css">
     <script language="javascript" type="text/javascript" src="seo.js">
-    setEmail('what@ever.uh');
-    document.getElementById("email").value = getEmail();
-    function funky() {
-        alert(document.getElementById('email').value);
-        return;
-    }
-    var categories =  getCategories(email, document.getElementById('email').value);
-    for (i in categories) {
-        var category = document.createElement("category");
-        category.name = i.name;
-    }
-    var items = getCategories(email, category);
-    for (i in items) {
-        var item = document.createElement("item");
-        item.name = i.name;
-        item.qty = i.qty;
-        item.status = i.status;
-        item.supplier = i.supplier;
-    }
+    
     </script>
 </head>
 <body>
@@ -42,15 +24,32 @@
         </div>
         <div class="inventory"></div>
     </div>    
-      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
-      <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
-      <script>
-      
-      $('.message a').click(function(){
-          $('form').animate({height: "toggle",opacity:"toggle"});
-      });
+        <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
+        <script>
+        document.getElementById("email").value = getEmail();
+        function funky() {
+            alert(document.getElementById('email').value);
+            return;
+        }
+        // var categories =  getCategories(email, document.getElementById('email').value);
+        // for (i in categories) {
+        //     var category = document.createElement("category");
+        //     category.name = i.name;
+        // }
+        // var items = getItems(email, category);
+        // for (i in items) {
+        //     var item = document.createElement("item");
+        //     item.name = i.name;
+        //     item.qty = i.qty;
+        //     item.status = i.status;
+        //     item.supplier = i.supplier;
+        // }
+        $('.message a').click(function(){
+            $('form').animate({height: "toggle",opacity:"toggle"});
+        });
 
-      </script>
+        </script>
 </body>
 </html>

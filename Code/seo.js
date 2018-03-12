@@ -1,5 +1,19 @@
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
 var global_email = '';
 var global_category = '';
+
+app.set('view_enginer', 'ejs');
+server.listen(process.env.PORT || 3000);
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "yourusername",
+  password: "yourpassword"
+});
 
 function Address(street, city, state, country, zip) {
     this.street = street;
@@ -37,26 +51,70 @@ function Item(name, qty, price, status, supplier) {
 }
 
 function setEmail(email) {
-    global_email = email; 
+    // sw = new StreamWriter("email.txt");
+    // sw.Write(email);
+    // sw.Close();
+    return;
 }
 
 function getEmail() {
-    return global_email;
+    // try {
+    //     // Create an instance of StreamReader to read from a file.
+    //     sr = new StreamReader("email.txt");
+    //     // Read and display lines from the file until the end of the file is reached.
+    //     line = sr.ReadLine();
+    //     while (line != null) {
+    //         line = sr.ReadLine();
+    //     }
+    //     sr.Close();
+    //     return line;
+    // }
+    // catch (e) {
+    //     // Let the user know what went wrong.
+    //     print("The file could not be read:");
+    //     print(e.Message);
+    // }
+    return;
 }
 function setCategory(category) {
-    global_category = category
+    // sw = new StreamWriter("email.txt");
+    // sw.Write(category);
+    // sw.Close();
+    return;
 }
 
 function getCategory() {
-    return global_category;
+    // try {
+    //     // Create an instance of StreamReader to read from a file.
+    //     sr = new StreamReader("category.txt");
+    //     // Read and display lines from the file until the end of the file is reached.
+    //     line = sr.ReadLine();
+    //     while (line != null) {
+    //         line = sr.ReadLine();
+    //     }
+    //     sr.Close();
+    //     return line;
+    // }
+    // catch (e) {
+    //     // Let the user know what went wrong.
+    //     print("The file could not be read:");
+    //     print(e.Message);
+    // }
+    return;
 }
 
 function login(email, password) {
     if(userExists(email, password)) {
+        setEmail(email);
+        setCategory("");
         window.open("home.html", "_self");
     } else {
         window.open("login.html", "_self");
     }
+}
+
+function logout() {
+    
 }
 
 function userExists(email, password) {
@@ -67,7 +125,8 @@ function signup(email, password1, password2) {
     if ( (password1 == password2) && (password1 != '') && (password2 != '') && email.includes('@')) {
         user = new User(email, password1);
         createUser(user);
-        set
+        setEmail(email);
+        setCategory("");
         window.open('userSettings.html', "_self");
     }else{
         window.open("login.html", "_self");
