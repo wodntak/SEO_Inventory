@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
+<input id="category" hidden>
+<input id='email' hidden>
 <head>
-  <title>SEOinventory</title>
-  <link rel ="stylesheet" href ="style.css">
+    <meta charset="utf-8"/>
+    <title>SEOinventory</title>
+    <link rel ="stylesheet" href ="style.css">
+    <script language="javascript" type="text/javascript" src="seo.js">
+    setEmail(what@ever.uh);
+    document.getElementById("email").value = getEmail();
+    function funky() {
+        alert(document.getElementById('email').value);
+        return;
+    }
+    var categories =  getCategories(email, document.getElementById('email').value);
+    for (i in categories) {
+        var category = document.createElement("category");
+        category.name = i.name;
+    }
+    var items = getCategories(email, category);
+    for (i in items) {
+        var item = document.createElement("item");
+        item.name = i.name;
+        item.qty = i.qty;
+        item.status = i.status;
+        item.supplier = i.supplier;
+    }
+    </script>
 </head>
 <body>
     <p id="nameCorner">SEOinventory</p>
+    <p id="currentDirectory" />
     <div class="home-page">
         <!--register an account form-->
         <div class="corner">
             <button type="button" onclick="location.href='login.html';" style="padding:4px;width:100%">LogOut</button>
-            <divider></divider>
             <button type="button" onclick="location.href='userSettings.html';" style="padding:4px;width:100%">Settings</button>
+            <button onclick="funky();">Try it out!</button>
         </div>
         <div class="inventory"></div>
     </div>    
@@ -19,9 +44,31 @@
 
       <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
       <script>
+      $(
+        setEmail('what@ever.uh');
+        document.getElementById("email").value = getEmail();
+        function funky() {
+            alert(document.getElementById('email').value);
+            return;
+        }
+        var categories =  getCategories(email, document.getElementById('email').value);
+        for (i in categories) {
+            var category = document.createElement("category");
+            category.name = i.name;
+        }
+        var items = getCategories(email, category);
+        for (i in items) {
+            var item = document.createElement("item");
+            item.name = i.name;
+            item.qty = i.qty;
+            item.status = i.status;
+            item.supplier = i.supplier;
+        }
+      );
       $('.message a').click(function(){
           $('form').animate({height: "toggle",opacity:"toggle"});
       });
+
       </script>
 </body>
 </html>

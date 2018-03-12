@@ -3,6 +3,7 @@
 <head>
   <title>SEOinventory</title>
   <link rel ="stylesheet" href ="style.css">
+  <script type="text/javascript" src="seo.js"></script>
 </head>
 <body>
     <p id="nameCorner">SEOinventory</p>
@@ -15,23 +16,33 @@
         </div>
         <div class ="settings-form">
         <form class ="login-form">
-            <input type="text" placeholder="first name">
-            <input type="text" placeholder="middle name">
-            <input type="text" placeholder="last name">
-            <input type="text" placeholder="phone number">
-            <input type="text" placeholder="notifcations">
-            <input type="text" placeholder="street">
-            <input type="text" placeholder="city">
-            <input type="text" placeholder="state">
-            <input type="text" placeholder="zip">
-            <input type="text" placeholder="country">
-            <button>
+            <input type="text" placeholder="first name" id="firstName">
+            <input type="text" placeholder="middle name" id="middleName">
+            <input type="text" placeholder="last name" id="lastName">
+            <input type="text" placeholder="phone number" id="phoneNumber">
+            <input type="text" placeholder="notifcations" id="notfications">
+            <input type="text" placeholder="street" id="street">
+            <input type="text" placeholder="city" id="city">
+            <input type="text" placeholder="state" id="state">
+            <input type="text" placeholder="zip" id="zip">
+            <input type="text" placeholder="country" id="country">
+            <button onclick="saveUserSettings(
+                document.getElementById('firstName').value,
+                document.getElementById('middleName').value,
+                document.getElementById('lastName').value,
+                document.getElementById('phoneNumber').value,
+                document.getElementById('notifications').value,
+                document.getElementById('street').value,
+                document.getElementById('city').value,
+                document.getElementById('state').value,
+                document.getElementById('zip').value,
+                document.getElementById('country').value);">
             Save
             </button>
         </form>
     </div>    
       <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-
+      <script src="seo.js"/> 
       <!--function to bring up sign up page or login page when user click on the href of sign up and sign in-->
       <script>
       $('.message a').click(function(){
