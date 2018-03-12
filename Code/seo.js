@@ -52,12 +52,15 @@ function getCategory() {
 }
 
 function login(email, password) {
-    try {
-        isUser(email, password);
-        window.open('home.html', "_self");
-    }catch(err){
-        window.open('login.html', "_self");
+    if(userExists(email, password)) {
+        window.open("home.html", "_self");
+    } else {
+        window.open("login.html", "_self");
     }
+}
+
+function userExists(email, password) {
+    return true;
 }
 
 function signup(email, password1, password2) {
@@ -67,7 +70,7 @@ function signup(email, password1, password2) {
         set
         window.open('userSettings.html', "_self");
     }else{
-         window.open("login.html", "_self");
+        window.open("login.html", "_self");
     }
 }
 
