@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>SEOinventory</title>
-    <link rel ="stylesheet" href ="style.css">
+    <link rel ="stylesheet" href ="homepageStyle.css">
     <script language="javascript" type="text/javascript" src="seo.js">
     
     </script>
@@ -51,5 +51,44 @@
         });
 
         </script>
+
+        </div>
+        <button id="addItem" class="button">ADD</button>
+
+        <div id="simpleModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                <span class="closeBtn">&times;</span>
+                <h2>Add Item</h2>
+                </div>
+            <form class="addItem">
+                Item Name <br>
+                <input type="text" name="itemName" /> <br>
+                
+                Quantity <br>
+                <input type="number" name="quantity" /><br>
+
+                price<br>
+                <input type="number" name="price" /><br>
+                
+                Item Status<br>
+                <input type="text" name="itemStatus" /><br>
+                
+                supplier<br>
+                <input type="text" name="supplier" /><br>
+
+                category<br>
+                <input type="text" name="category" /><br>
+                
+                <button id="add" type ="submit">Add</a></button>
+
+            </form>
+            <script src="main.js"></script>
+
+            </div>
+        </div>
+
+
+
 </body>
 </html>
